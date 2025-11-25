@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Eterna App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="screen-landing" class="screen">
+        <div class="landing-container">
+            <h1 class="serif logo-landing">ETERNA</h1>
+            <p class="serif" style="font-size: 1.2rem; margin-bottom: 40px; color: #dcdcdc;">Crafted for you. Endlessly.</p>
+
+            <div style="background-color: var(--cream-bg); padding: 30px; border-radius: 30px 30px 0 0;">
+                <button class="btn btn-primary" onclick="goTo('screen-login')">Login</button>
+                <p style="margin: 10px 0; color: var(--dark-brown);">or</p>
+                <button class="btn btn-primary" onclick="goTo('screen-register')">Create an account</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="screen-login" class="screen hidden">
+        <div class="header-dark">
+            <div class="close-btn" onclick="goTo('screen-landing')">✕</div>
+            <h1 class="serif header-title">Login</h1>
+        </div>
+
+        <div style="padding: 20px;">
+            <input type="email" placeholder="Email or Phone">
+            <input type="password" placeholder="Password">
+            <p class="text-center" style="margin-bottom: 20px; font-size: 14px;">Forgot Password?</p>
+
+            <button class="btn btn-primary" onclick="goTo('screen-home')">Enter</button>
+        </div>
+    </div>
+
+    <div id="screen-register" class="screen hidden">
+        <div class="header-dark">
+            <div class="close-btn" onclick="goTo('screen-landing')">✕</div>
+            <h1 class="serif header-title">Let's<br>Create<br>Your<br>Account</h1>
+        </div>
+        <div style="padding: 0 10px;">
+            <input type="text" placeholder="Full Name">
+            <input type="email" placeholder="Email Address">
+            <input type="password" placeholder="Password">
+            <input type="password" placeholder="Retype Password">
+
+            <label style="display: flex; align-items: center; margin: 15px 0; font-size: 14px;">
+                <input type="checkbox" style="width: auto; margin: 0 10px 0 0;"> I agree to the Terms & Privacy
+            </label>
+
+            <button class="btn btn-primary" onclick="goTo('screen-home')">Sign Up</button>
+            <p class="text-center" style="margin-top: 20px;">Have an account? <b onclick="goTo('screen-login')">Sign In</b></p>
+        </div>
+    </div>
+
+    <div id="screen-home" class="screen hidden home-bg">
+        <div style="display: flex; justify-content: space-between; align-items: center; color: var(--cream-bg); margin-bottom: 20px;">
+            <div style="font-size: 24px;">•••</div>
+            <div onclick="goTo('screen-menu')" style="font-size: 30px; cursor: pointer;">☰</div>
+        </div>
+
+        <h1 class="serif" style="color: var(--cream-bg); font-size: 3rem;">Homepage</h1>
+
+        <div style="background-color: rgba(37, 24, 18, 0.9); margin-top: auto; padding: 40px 20px; border-radius: 30px; text-align: center; color: var(--cream-bg); border: 1px solid rgba(255,255,255,0.1);">
+            <h3 style="margin-bottom: 20px;">Search to inspiration!</h3>
+             <div style="font-size: 80px; line-height: 1;">୭</div>
+        </div>
+    </div>
+
+    <div id="screen-menu" class="screen hidden">
+        <div class="close-btn" onclick="goTo('screen-home')">✕</div>
+        <h1 class="serif" style="margin-bottom: 40px; font-size: 3rem;">Menu</h1>
+
+        <div class="menu-item" onclick="goTo('screen-assistant')">Meet Eternity: your virtual assistant</div>
+        <div class="menu-item" onclick="goTo('screen-memory')">Memory diary</div>
+        <div class="menu-item" onclick="goTo('screen-create')">Create your perfume</div>
+        <div class="menu-item">Profile</div>
+    </div>
+
+    <div id="screen-assistant" class="screen hidden">
+        <div class="header-dark" style="margin-bottom: 0;">
+            <div class="close-btn" onclick="goTo('screen-menu')">✕</div>
+            <h1 class="serif header-title">Hello,<br>I'm Eternity!</h1>
+        </div>
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <div style="background-color: var(--dark-brown); color: var(--cream-bg); padding: 30px; border-radius: 30px; margin-bottom: 20px; position: relative;">
+                <p>Hello! I'm Eternity, your virtual AI assistant. I'm here to help you personalize your perfume.</p>
+                <div style="position: absolute; bottom: -10px; left: 30px; width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 15px solid var(--dark-brown);"></div>
+            </div>
+            <div style="font-size: 80px; color: var(--dark-brown);">୭</div>
+        </div>
+    </div>
+
+    <div id="screen-create" class="screen hidden">
+         <div class="header-dark">
+            <div class="close-btn" onclick="goTo('screen-menu')">✕</div>
+            <h1 class="serif header-title">Create your<br>perfume</h1>
+        </div>
+
+        <div class="menu-item" style="background-color: #A69886; color: var(--dark-brown);">First Step: Create a fragrance</div>
+        <div class="menu-item" style="background-color: #A69886; color: var(--dark-brown);">Second Step: Create a packaging</div>
+        <div class="menu-item" style="background-color: #A69886; color: var(--dark-brown);">Third Step: Customize the packaging</div>
+
+        <div style="margin-top: auto; background-color: var(--dark-brown); color: var(--cream-bg); padding: 20px; border-radius: 30px;">
+            <p><b>Not sure where to start?</b><br>Think about the mood you want...</p>
+        </div>
+        <div style="text-align: right; margin-top: 20px; font-weight: bold; font-size: 1.2rem;" onclick="alert('Inicia o processo!')">Let's start! ➝</div>
+    </div>
+
+    <div id="screen-memory" class="screen hidden">
+        <div class="header-dark">
+           <div class="close-btn" onclick="goTo('screen-menu')">✕</div>
+           <h1 class="serif header-title">Memory<br>diary</h1>
+       </div>
+       <button class="btn btn-primary" style="margin-bottom: 30px;">Your memories storage</button>
+
+       <div style="background-color: #6e5d50; color: var(--text-dark); padding: 20px; border-radius: 30px; flex: 1;">
+           <h3 class="serif" style="color: #FFE4B5; text-align: center; margin-bottom: 20px;">November 2025</h3>
+           <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; text-align: center; font-size: 12px; color: #FFE4B5;">
+               <div>SUN</div><div>MON</div><div>TUE</div><div>WED</div><div>THU</div><div>FRI</div><div>SAT</div>
+               <div></div><div></div><div></div><div></div><div></div><div></div><div>1</div>
+               <div>2</div><div>3</div><div style="color: white; font-weight: bold;">4</div><div>5</div><div>6</div><div>7</div><div>8</div>
+               <div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div>
+           </div>
+       </div>
+       <div style="text-align: right; margin-top: 20px; font-weight: bold; font-size: 1.2rem;">Next ➝</div>
+   </div>
+
+   <script src="script.js"></script>
+</body>
+</html>
