@@ -33,6 +33,7 @@ function closeMenu() {
     goTo(previousScreen);
 }
 
+
 function selectOption(element) {
     element.classList.toggle('selected');
 }
