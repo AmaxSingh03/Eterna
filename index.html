@@ -78,7 +78,6 @@
     <div id="screen-menu" class="screen hidden">
         <div class="close-btn" onclick="closeMenu()">✕</div>
         <h1 class="serif" style="margin-bottom: 40px; font-size: 3rem;">Menu</h1>
-
         <div class="menu-item" onclick="goTo('screen-home')">Home</div>
         <div class="menu-item" onclick="goTo('screen-assistant')">Meet Eternity: your virtual assistant</div>
         <div class="menu-item" onclick="goTo('screen-memory')">Memory diary</div>
@@ -93,11 +92,10 @@
         </div>
         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <div style="background-color: var(--dark-brown); color: var(--cream-bg); padding: 30px; border-radius: 30px; margin-bottom: 20px; position: relative;">
-                <p>Hello! I'm Eternity, your virtual AI assistant. I'm here to help you personalize your perfume.</p>
+                <p>Hello, I'm Eternity! Your virtual AI assistant. I'm here to help you personalize and create your perfume. All my knowledge comes from experts in the field of perfumery.</p>
                 <div style="position: absolute; bottom: -10px; left: 30px; width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 15px solid var(--dark-brown);"></div>
             </div>
             <div style="font-size: 80px; color: var(--dark-brown);">୭</div>
-
             <div style="width: 100%; margin-top: 20px; position: relative;">
                 <input type="text" placeholder="Type a message..." style="width: 100%; padding-right: 40px; border-radius: 30px; border: 2px solid var(--dark-brown);">
                 <div style="position: absolute; right: 15px; top: 15px; color: var(--dark-brown);">➤</div>
@@ -116,15 +114,14 @@
         <div class="menu-item" style="background-color: #A69886; color: var(--dark-brown);">Fourth Step: Payment & Delivery</div>
 
         <div style="margin-top: auto; display: flex; gap: 10px; align-items: flex-end;">
-            <div style="font-size: 50px; color: var(--dark-brown);">୭</div>
+            <div style="font-size: 50px; color: var(--dark-brown); cursor: pointer;" onclick="goTo('screen-assistant')">୭</div>
             <div style="background-color: var(--dark-brown); color: var(--cream-bg); padding: 15px; border-radius: 20px; font-size: 11px;">
                 <p><b>Not sure where to start?</b><br>
                 Think about the mood you want, explore trendy luxury notes, and customize every detail, from the scent to the packaging.<br><br>
                 I can also use your saved memories to recreate or refine your favorite aromas!</p>
             </div>
         </div>
-
-        <div style="text-align: right; margin-top: 20px; font-weight: bold; font-size: 1.2rem; cursor: pointer;" onclick="goTo('screen-create-preferences')">Let's start! ➝</div>
+        <div style="text-align: right; margin-top: 20px; font-weight: bold; font-size: 1.2rem; cursor: pointer;" onclick="goTo('screen-create-preferences')">Let's start! →</div>
     </div>
 
     <div id="screen-memory" class="screen hidden">
@@ -136,7 +133,6 @@
 
        <div style="background-color: #6e5d50; color: var(--text-dark); padding: 20px; border-radius: 30px; flex: 1;">
            <h3 class="serif" style="color: #FFE4B5; text-align: center; margin-bottom: 20px;">November 2025</h3>
-
            <div class="calendar-grid">
                <div class="cal-header">S</div><div class="cal-header">M</div><div class="cal-header">T</div><div class="cal-header">W</div><div class="cal-header">T</div><div class="cal-header">F</div><div class="cal-header">S</div>
                <div></div><div></div><div></div><div></div><div></div><div></div><div id="day-1">1</div>
@@ -144,109 +140,165 @@
                <div id="day-9">9</div><div id="day-10">10</div><div id="day-11">11</div><div id="day-12">12</div><div id="day-13">13</div><div id="day-14">14</div><div id="day-15">15</div>
                <div id="day-16">16</div><div id="day-17">17</div><div id="day-18">18</div><div id="day-19">19</div><div id="day-20">20</div><div id="day-21">21</div><div id="day-22">22</div>
                <div id="day-23">23</div><div id="day-24">24</div><div id="day-25">25</div><div id="day-26">26</div><div id="day-27">27</div><div id="day-28">28</div><div id="day-29">29</div>
-               <div id="day-30">30</div>
+               <div id="day-30">30</div><div id="day-31">31</div>
            </div>
        </div>
-
        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
             <div style="font-size: 40px; cursor: pointer;" onclick="goTo('screen-assistant')">୭</div>
-            <div style="font-weight: bold; font-size: 1.2rem; cursor: pointer;" onclick="goTo('screen-memory-detail')">Next ➝</div>
+            <div style="font-weight: bold; font-size: 1.2rem; cursor: pointer;" onclick="goTo('screen-memory-detail')">Next →</div>
        </div>
    </div>
 
-   <div id="screen-memory-detail" class="screen hidden" style="background-color: #fff3d8;">
+   <div id="screen-memory-detail" class="screen hidden">
         <div class="header-dark">
             <div class="menu-btn" onclick="openMenu()">☰</div>
             <h1 class="serif header-title">Memory<br>diary</h1>
         </div>
-
         <button class="btn btn-primary" style="margin-bottom: 20px;">Your memories storage</button>
-
         <div style="background-color: #6e5d50; padding: 20px; border-radius: 30px; flex: 1; display: flex; flex-direction: column;">
-            <h2 class="serif" style="color: #FFE4B5; text-align: center;">Day 4 - "Trip to Rome"</h2>
-            <h4 class="serif" style="color: #FFE4B5; margin-bottom: 15px;">Library</h4>
-
+            <h2 class="serif" style="color: #FFE4B5; text-align: center;"><span id="dynamic-date">Day</span> - "Name Your Memory"</h2>
+            <h4 class="serif" style="color: #FFE4B5; margin-bottom: 15px; text-align: center;">Library</h4>
             <div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 5px; flex: 1; min-height: 200px;">
                 <div class="img-placeholder">+ Add Image</div>
                 <div class="img-placeholder">+ Add Image</div>
                 <div class="img-placeholder">+ Add Image</div>
                 <div class="img-placeholder">+ Add Image</div>
             </div>
-
             <div style="display: flex; gap: 10px; margin-top: 15px; justify-content: center;">
                 <div class="tag-btn">Add memories</div>
                 <div class="tag-btn">Let's craft</div>
                 <div class="tag-btn">See more</div>
             </div>
-
             <div style="background-color: #251812; padding: 15px; border-radius: 20px; margin-top: 20px; position: relative; color: #FFE4B5;">
                 <p style="font-weight: bold; font-size: 12px; margin-bottom: 5px;">Looking for inspiration?</p>
-                <p style="font-size: 10px;">Check the latest fragrance trends and use your saved memories or photos to spark new ideas...</p>
-
+                <p style="font-size: 10px;">Check the latest fragrance trends...</p>
             </div>
         </div>
-
         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+            <div style="font-weight: bold; font-size: 1.2rem; cursor: pointer;" onclick="goTo('screen-memory')">← Back</div>
             <div style="font-size: 40px; cursor: pointer;" onclick="goTo('screen-assistant')">୭</div>
-            <div style="font-weight: bold; font-size: 1.2rem; cursor: pointer;" onclick="goTo('screen-memory')">←Back</div>
        </div>
    </div>
 
-   <div id="screen-create-preferences" class="screen hidden" style="background-color: #B5A896;">
+   <div id="screen-create-preferences" class="screen hidden">
         <div class="header-dark">
             <div class="menu-btn" onclick="openMenu()">☰</div>
             <h1 class="serif header-title">Create your<br>perfume</h1>
         </div>
         <div class="step-label">First Step: Create a fragrance</div>
         <p class="section-title">Select your preferences</p>
+
         <div class="grid-options">
             <div class="option-card" onclick="selectOption(this)">Sweet<br><span class="tiny">Vanilla, caramel...</span></div>
             <div class="option-card" onclick="selectOption(this)">Fresh<br><span class="tiny">Mint, cucumber...</span></div>
             <div class="option-card" onclick="selectOption(this)">Earthy<br><span class="tiny">Moss, cedar...</span></div>
             <div class="option-card" onclick="selectOption(this)">Floral<br><span class="tiny">Roses, lilies...</span></div>
+            <div class="option-card" onclick="selectOption(this)">Citrusy<br><span class="tiny">Orange, grapefruit...</span></div>
+            <div class="option-card" onclick="selectOption(this)">Oriental<br><span class="tiny">Cinnamon, cloves...</span></div>
+            <div class="option-card" onclick="selectOption(this)">Soft<br><span class="tiny">Talc, iris flower...</span></div>
+            <div class="option-card" onclick="selectOption(this)">Herbal<br><span class="tiny">Lavender, rosemary...</span></div>
         </div>
-        <div class="nav-bottom" onclick="goTo('screen-create-memory')"><span>Next ➝</span></div>
+
+        <div class="nav-bottom nav-split">
+            <div onclick="goTo('screen-create')">← Back</div>
+            <div onclick="goTo('screen-create-memory')">Next →</div>
+        </div>
     </div>
 
-    <div id="screen-create-memory" class="screen hidden" style="background-color: #B5A896;">
-        <div class="menu-btn" onclick="openMenu()" style="color: #251812; top: 20px; left: 20px; position: absolute; font-size: 30px; cursor: pointer;">☰</div>
-        <div class="step-label" style="margin-top: 60px;">First Step: Create a fragrance</div>
+    <div id="screen-create-memory" class="screen hidden">
+        <div class="header-dark">
+            <div class="menu-btn" onclick="openMenu()">☰</div>
+            <h1 class="serif header-title">Create your<br>perfume</h1>
+        </div>
+        <div class="step-label">First Step: Create a fragrance</div>
         <p class="section-title">Share a memory</p>
         <textarea class="input-area" placeholder="Type here..."></textarea>
-        <div style="text-align: center; font-size: 20px; margin: 10px 0;">↓</div>
+
+        <div style="text-align: center; font-size: 20px; margin: 5px 0;">↓</div>
+        <p class="section-title">Suggested emotion(s) linked</p>
+        <div class="option-card static">Nostalgia, Warmth</div>
+        <div style="text-align: center; font-size: 20px; margin: 5px 0;">↓</div>
         <p class="section-title">Suggested fragrance</p>
         <div class="option-card static">Woody & Vanilla Notes</div>
-        <div class="nav-bottom" onclick="goTo('screen-create-packaging')"><span>Next ➝</span></div>
+
+        <div class="nav-bottom nav-split">
+             <div onclick="goTo('screen-create-preferences')">← Back</div>
+             <div onclick="goTo('screen-create-packaging')">Next →</div>
+        </div>
     </div>
 
-    <div id="screen-create-packaging" class="screen hidden" style="background-color: #B5A896;">
-         <div class="step-label" style="margin-top: 40px;">Second Step: Create a packaging</div>
+    <div id="screen-create-packaging" class="screen hidden">
+         <div class="header-dark">
+            <div class="menu-btn" onclick="openMenu()">☰</div>
+            <h1 class="serif header-title">Create your<br>perfume</h1>
+        </div>
+         <div class="step-label">Second Step: Create a packaging</div>
          <p class="section-title">Select your packaging format</p>
-         <div class="grid-options">
-            <div class="option-card" onclick="selectOption(this)">Classic Spray</div>
-            <div class="option-card" onclick="selectOption(this)">Light Puffer</div>
-            <div class="option-card" onclick="selectOption(this)">Roll-on</div>
-            <div class="option-card" onclick="selectOption(this)">Solid</div>
+
+         <div class="grid-packaging">
+            <div class="option-card pack-card" onclick="selectPackaging(this, 'pack-spray.png')"><img src="pack-spray.png" class="pack-img"><br>Classic spray</div>
+            <div class="option-card pack-card" onclick="selectPackaging(this, 'pack-puffer.png')"><img src="pack-puffer.png" class="pack-img"><br>Light puffer</div>
+            <div class="option-card pack-card" onclick="selectPackaging(this, 'pack-rollon.png')"><img src="pack-rollon.png" class="pack-img"><br>Roll-on</div>
+            <div class="option-card pack-card" onclick="selectPackaging(this, 'pack-braille.png')"><img src="pack-braille.png" class="pack-img"><br>Braille Label</div>
+            <div class="option-card pack-card" onclick="selectPackaging(this, 'pack-refill.png')"><img src="pack-refill.png" class="pack-img"><br>Refillable bottle</div>
+            <div class="option-card pack-card" onclick="selectPackaging(this, 'pack-solid.png')"><img src="pack-solid.png" class="pack-img"><br>Solid</div>
          </div>
-         <div class="nav-bottom" onclick="goTo('screen-create-custom')"><span>Next ➝</span></div>
+
+         <div class="nav-bottom nav-split">
+             <div onclick="goTo('screen-create-memory')">← Back</div>
+             <div onclick="goTo('screen-create-custom')">Next →</div>
+        </div>
     </div>
 
-    <div id="screen-create-custom" class="screen hidden" style="background-color: #B5A896;">
-        <div class="step-label" style="margin-top: 40px;">Third Step: Customize</div>
+    <div id="screen-create-custom" class="screen hidden">
+        <div class="header-dark">
+            <div class="menu-btn" onclick="openMenu()">☰</div>
+            <h1 class="serif header-title">Create your<br>perfume</h1>
+        </div>
+        <div class="step-label">Third Step: Customize</div>
         <p class="section-title">Text Personalization</p>
         <input type="text" class="input-area" placeholder="Write a name or phrase">
         <p class="section-title">Choose a color</p>
-        <select class="input-area" style="height: 50px;"><option>Gold</option><option>Rose Gold</option></select>
-        <div class="nav-bottom" onclick="goTo('screen-preview')"><span>Next ➝</span></div>
+        <select class="input-area" style="height: 50px;"><option>Gold</option><option>Champagne</option><option>Black Matte</option><option>Emerald</option><option>Rose Gold</option></select>
+
+        <div class="nav-bottom nav-split">
+             <div onclick="goTo('screen-create-packaging')">← Back</div>
+             <div onclick="goTo('screen-preview')">Next →</div>
+        </div>
     </div>
 
-    <div id="screen-preview" class="screen hidden" style="background-color: #B5A896;">
-        <div class="menu-btn" onclick="openMenu()" style="color: #251812; top: 20px; left: 20px; position: absolute; font-size: 30px; cursor: pointer;">☰</div>
-        <div class="step-label" style="margin-top: 60px; background: transparent;">Preview My Perfume</div>
-        <div style="background-color: #8C7D68; border-radius: 30px; padding: 20px; margin-top: 20px; text-align: center;">
-            <img src="20.png" style="width: 80%; border-radius: 20px; display: block; margin: 0 auto;">
+    <div id="screen-preview" class="screen hidden">
+        <div class="header-dark">
+            <div class="menu-btn" onclick="openMenu()">☰</div>
+            <h1 class="serif header-title" style="margin-top: 10px;">Homepage</h1>
         </div>
-        <div class="nav-bottom" onclick="alert('Added to cart!')"><span>Add to Cart ➝</span></div>
+        <div class="step-label" style="background: transparent;">Preview My Perfume</div>
+
+        <div style="background-color: #8C7D68; border-radius: 30px; padding: 20px; margin-top: 20px; text-align: center;">
+            <img id="preview-img" src="pack-spray.png" style="width: 80%; border-radius: 20px; display: block; margin: 0 auto; max-height: 300px; object-fit: contain;">
+        </div>
+
+        <div class="nav-bottom nav-split">
+             <div onclick="goTo('screen-create-custom')">← Back</div>
+             <div onclick="goTo('screen-finish')">Finish Order →</div>
+        </div>
+    </div>
+
+    <div id="screen-finish" class="screen hidden">
+        <div class="header-dark">
+            <div class="menu-btn" onclick="openMenu()">☰</div>
+            <h1 class="serif header-title">Order<br>Status</h1>
+        </div>
+
+        <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+            <div style="font-size: 100px; color: #4CAF50; margin-bottom: 20px;">✅</div>
+            <h1 class="serif" style="color: var(--dark-brown); font-size: 2.5rem;">Order<br>Confirmed!</h1>
+            <p style="margin-top: 20px; color: #6e5d50;">Thank you for your purchase.<br>Your unique scent is on its way.</p>
+        </div>
+
+        <div class="nav-bottom" style="text-align: center;">
+             <div style="font-weight: bold; font-size: 1.2rem; cursor: pointer;" onclick="goTo('screen-home')">Back to Home →</div>
+        </div>
     </div>
 
    <script src="script.js"></script>

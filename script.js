@@ -1,22 +1,25 @@
-// Variável para guardar onde estavas antes de abrir o menu
 let previousScreen = 'screen-home';
+let selectedPackagingImage = 'pack-spray.png';
 
 function goTo(screenId) {
-    // 1. Esconde todas as telas
     const screens = document.querySelectorAll('.screen');
     screens.forEach(screen => screen.classList.add('hidden'));
 
-    // 2. Mostra a tela alvo
     const target = document.getElementById(screenId);
     if (target) {
         target.classList.remove('hidden');
         target.scrollTop = 0;
+
+        if (screenId === 'screen-preview') {
+            const previewImg = document.getElementById('preview-img');
+            if (previewImg) {
+                previewImg.src = selectedPackagingImage;
+            }
+        }
     }
 }
 
-// Função para abrir o menu e LEMBRAR de onde vieste
 function openMenu() {
-    // Procura qual tela está visível agora (que não seja hidden)
     const screens = document.querySelectorAll('.screen');
     screens.forEach(screen => {
         if (!screen.classList.contains('hidden') && screen.id !== 'screen-menu') {
@@ -26,7 +29,6 @@ function openMenu() {
     goTo('screen-menu');
 }
 
-// Função para fechar o menu e VOLTAR para onde estavas
 function closeMenu() {
     goTo(previousScreen);
 }
@@ -35,11 +37,30 @@ function selectOption(element) {
     element.classList.toggle('selected');
 }
 
-// Função para destacar o dia de hoje automaticamente
+// Nova função para seleção ÚNICA
+function selectPackaging(element, imageName) {
+    // 1. Remove selected dos irmãos
+    const siblings = element.parentElement.children;
+    for (let i = 0; i < siblings.length; i++) {
+        siblings[i].classList.remove('selected');
+    }
+    // 2. Seleciona o atual
+    element.classList.add('selected');
+    // 3. Atualiza imagem
+    selectedPackagingImage = imageName;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    const today = new Date().getDate();
-    const dayElement = document.getElementById('day-' + today);
+    const today = new Date();
+    const day = today.getDate();
+
+    const dayElement = document.getElementById('day-' + day);
     if (dayElement) {
         dayElement.classList.add('today-highlight');
+    }
+
+    const dynamicTitle = document.getElementById('dynamic-date');
+    if (dynamicTitle) {
+        dynamicTitle.textContent = "Day " + day;
     }
 });
