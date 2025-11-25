@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Eterna App</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div id="screen-landing" class="screen">
         <div class="landing-top">
-            <h1 class="serif logo-landing">ETERNA</h1>
-            <p class="serif" style="font-size: 1.2rem; color: #dcdcdc;">Crafted for you. Endlessly.</p>
+            <h1 class="logo-landing">ETERNA</h1>
+            <p class="landing-subtitle">Crafted for you. Endlessly.</p>
         </div>
         <div class="landing-bottom">
             <button class="btn btn-primary" onclick="goTo('screen-login')">Login</button>
@@ -24,11 +24,11 @@
     <div id="screen-login" class="screen hidden">
         <div class="header-dark">
             <div class="close-btn" onclick="goTo('screen-landing')">✕</div>
-            <h1 class="serif header-title">Login</h1>
+            <h1 class="header-title">Login</h1>
         </div>
         <div style="padding: 20px;">
-            <input type="email" placeholder="Email or Phone">
-            <input type="password" placeholder="Password">
+            <div class="input-with-icon"><span>✉️</span><input type="email" placeholder="Email or Phone"></div>
+            <div class="input-with-icon"><span>🔒</span><input type="password" placeholder="Password"></div>
             <p class="text-center" style="margin-bottom: 20px; font-size: 14px; cursor: pointer;" onclick="goTo('screen-forgot')">Forgot Password?</p>
             <button class="btn btn-primary" onclick="goTo('screen-home')">Enter</button>
         </div>
@@ -38,7 +38,7 @@
         <div class="close-btn-dark" onclick="goTo('screen-login')">✕</div>
         <div style="margin-top: 60px; text-align: center; padding: 20px;">
             <div style="font-size: 60px; color: var(--dark-brown); margin-bottom: 10px;">🔒</div>
-            <h1 class="serif" style="font-size: 2.5rem; color: var(--dark-brown); line-height: 1.1;">Forgot<br>Password?</h1>
+            <h1 class="header-title" style="color: var(--dark-brown);">Forgot<br>Password?</h1>
             <p style="margin: 20px 0; color: #6e5d50;">No worries, we’ll send you<br>reset instructions</p>
         </div>
         <div style="background-color: var(--dark-brown); border-radius: 40px 40px 0 0; padding: 40px 20px; flex: 1; margin: 0 -20px -20px -20px; display: flex; flex-direction: column;">
@@ -52,22 +52,52 @@
     <div id="screen-register" class="screen hidden">
         <div class="header-dark">
             <div class="close-btn" onclick="goTo('screen-landing')">✕</div>
-            <h1 class="serif header-title">Let's<br>Create<br>Your<br>Account</h1>
+            <h1 class="header-title">Let's<br>Create<br>Your<br>Account</h1>
         </div>
         <div style="padding: 0 10px;">
-            <input type="text" placeholder="Full Name">
-            <input type="email" placeholder="Email Address">
-            <input type="password" placeholder="Password">
+            <div class="input-with-icon"><span>👤</span><input type="text" placeholder="Full Name"></div>
+            <div class="input-with-icon"><span>✉️</span><input type="email" placeholder="Email Address"></div>
+            <div class="input-with-icon"><span>🔒</span><input type="password" placeholder="Password"></div>
+            <div class="input-with-icon"><span>🔒</span><input type="password" placeholder="Retype Password"></div>
+
+            <label style="display: flex; align-items: center; margin: 15px 0; font-size: 14px;">
+                <input type="checkbox" style="width: auto; margin: 0 10px 0 0;"> I agree to the Terms & Privacy
+            </label>
+
             <button class="btn btn-primary" onclick="goTo('screen-home')">Sign Up</button>
+            <p class="text-center" style="margin-top: 20px;">Have an account? <b onclick="goTo('screen-login')" style="cursor: pointer;">Sign In</b></p>
+        </div>
+    </div>
+
+    <div id="screen-profile" class="screen hidden">
+        <div class="header-dark">
+            <div class="menu-btn" onclick="openMenu()">☰</div>
+            <h1 class="header-title">Profile</h1>
+        </div>
+        <div style="padding: 20px; flex: 1; display: flex; flex-direction: column;">
+            <div class="profile-btn">Personal Data</div>
+            <div class="profile-btn">My creations</div>
+            <div class="profile-btn">Activity</div>
+            <div class="profile-btn">Settings</div>
+            <div class="avatar-circle"></div>
+            <div class="avatar-shoulders"></div>
         </div>
     </div>
 
     <div id="screen-home" class="screen hidden">
         <div class="header-dark">
             <div class="menu-btn" onclick="openMenu()">☰</div>
-            <h1 class="serif header-title" style="margin-top: 10px;">Homepage</h1>
+            <h1 class="header-title" style="margin-top: 10px;">Homepage</h1>
         </div>
-        <div style="flex: 1; display: flex; flex-direction: column;">
+
+        <div style="flex: 1; display: flex; flex-direction: column; padding: 0 20px;">
+
+            <div class="home-text">
+                <p>Eterna is an AI-powered app that lets you fully personalize your perfume, from the fragrance to the packaging. Your journey is guided by Eternity, a virtual assistant built on real perfumery expertise.</p>
+                <br>
+                <p>At the heart of the brand are three defining values: inclusivity, sustainability, and nostalgia. Every perfume is crafted to be uniquely yours, shaped around your needs, your personality, and the memories that define you.</p>
+            </div>
+
             <div class="home-card" onclick="goTo('screen-assistant')">
                 <h3 style="margin-bottom: 20px;">Search to inspiration!</h3>
                  <div style="font-size: 80px; line-height: 1;">୭</div>
@@ -77,22 +107,22 @@
 
     <div id="screen-menu" class="screen hidden">
         <div class="close-btn" onclick="closeMenu()">✕</div>
-        <h1 class="serif" style="margin-bottom: 40px; font-size: 3rem;">Menu</h1>
+        <h1 class="header-title" style="margin-bottom: 40px;">Menu</h1>
         <div class="menu-item" onclick="goTo('screen-home')">Home</div>
         <div class="menu-item" onclick="goTo('screen-assistant')">Meet Eternity: your virtual assistant</div>
         <div class="menu-item" onclick="goTo('screen-memory')">Memory diary</div>
         <div class="menu-item" onclick="goTo('screen-create')">Create your perfume</div>
-        <div class="menu-item">Profile</div>
+        <div class="menu-item" onclick="goTo('screen-profile')">Profile</div>
     </div>
 
     <div id="screen-assistant" class="screen hidden">
         <div class="header-dark" style="margin-bottom: 0;">
             <div class="menu-btn" onclick="openMenu()">☰</div>
-            <h1 class="serif header-title">Hello,<br>I'm Eternity!</h1>
+            <h1 class="header-title">Hello,<br>I'm Eternity!</h1>
         </div>
         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
             <div style="background-color: var(--dark-brown); color: var(--cream-bg); padding: 30px; border-radius: 30px; margin-bottom: 20px; position: relative;">
-                <p>Hello, I'm Eternity! Your virtual AI assistant. I'm here to help you personalize and create your perfume. All my knowledge comes from experts in the field of perfumery.</p>
+                <p>Hello! I'm Eternity, your virtual AI assistant. I'm here to help you personalize your perfume.</p>
                 <div style="position: absolute; bottom: -10px; left: 30px; width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 15px solid var(--dark-brown);"></div>
             </div>
             <div style="font-size: 80px; color: var(--dark-brown);">୭</div>
@@ -106,7 +136,7 @@
     <div id="screen-create" class="screen hidden">
          <div class="header-dark">
             <div class="menu-btn" onclick="openMenu()">☰</div>
-            <h1 class="serif header-title">Create your<br>perfume</h1>
+            <h1 class="header-title">Create your<br>perfume</h1>
         </div>
         <div class="menu-item" style="background-color: #A69886; color: var(--dark-brown);">First Step: Create a fragrance</div>
         <div class="menu-item" style="background-color: #A69886; color: var(--dark-brown);">Second Step: Create a packaging</div>
@@ -117,22 +147,21 @@
             <div style="font-size: 50px; color: var(--dark-brown); cursor: pointer;" onclick="goTo('screen-assistant')">୭</div>
             <div style="background-color: var(--dark-brown); color: var(--cream-bg); padding: 15px; border-radius: 20px; font-size: 11px;">
                 <p><b>Not sure where to start?</b><br>
-                Think about the mood you want, explore trendy luxury notes, and customize every detail, from the scent to the packaging.<br><br>
-                I can also use your saved memories to recreate or refine your favorite aromas!</p>
+                Think about the mood you want, explore trendy luxury notes... I can also use your saved memories!</p>
             </div>
         </div>
-        <div style="text-align: right; margin-top: 20px; font-weight: bold; font-size: 1.2rem; cursor: pointer;" onclick="goTo('screen-create-preferences')">Let's start! →</div>
+        <div style="text-align: right; margin-top: 20px; font-weight: bold; font-size: 1.2rem; cursor: pointer;" onclick="goTo('screen-create-preferences')">Let's start! ➝</div>
     </div>
 
     <div id="screen-memory" class="screen hidden">
         <div class="header-dark">
            <div class="menu-btn" onclick="openMenu()">☰</div>
-           <h1 class="serif header-title">Memory<br>diary</h1>
+           <h1 class="header-title">Memory<br>diary</h1>
        </div>
        <button class="btn btn-primary" style="margin-bottom: 20px;">Your memories storage</button>
 
        <div style="background-color: #6e5d50; color: var(--text-dark); padding: 20px; border-radius: 30px; flex: 1;">
-           <h3 class="serif" style="color: #FFE4B5; text-align: center; margin-bottom: 20px;">November 2025</h3>
+           <h3 class="header-title" style="font-size: 1.5rem; color: #FFE4B5; margin-bottom: 20px;">November 2025</h3>
            <div class="calendar-grid">
                <div class="cal-header">S</div><div class="cal-header">M</div><div class="cal-header">T</div><div class="cal-header">W</div><div class="cal-header">T</div><div class="cal-header">F</div><div class="cal-header">S</div>
                <div></div><div></div><div></div><div></div><div></div><div></div><div id="day-1">1</div>
@@ -145,19 +174,19 @@
        </div>
        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
             <div style="font-size: 40px; cursor: pointer;" onclick="goTo('screen-assistant')">୭</div>
-            <div style="font-weight: bold; font-size: 1.2rem; cursor: pointer;" onclick="goTo('screen-memory-detail')">Next →</div>
+            <div style="font-weight: bold; font-size: 1.2rem; cursor: pointer;" onclick="goTo('screen-memory-detail')">Next ➝</div>
        </div>
    </div>
 
    <div id="screen-memory-detail" class="screen hidden">
         <div class="header-dark">
             <div class="menu-btn" onclick="openMenu()">☰</div>
-            <h1 class="serif header-title">Memory<br>diary</h1>
+            <h1 class="header-title">Memory<br>diary</h1>
         </div>
         <button class="btn btn-primary" style="margin-bottom: 20px;">Your memories storage</button>
         <div style="background-color: #6e5d50; padding: 20px; border-radius: 30px; flex: 1; display: flex; flex-direction: column;">
-            <h2 class="serif" style="color: #FFE4B5; text-align: center;"><span id="dynamic-date">Day</span> - "Name Your Memory"</h2>
-            <h4 class="serif" style="color: #FFE4B5; margin-bottom: 15px; text-align: center;">Library</h4>
+            <h2 class="header-title" style="font-size: 1.5rem; color: #FFE4B5;"><span id="dynamic-date">Day</span> - "Name Your Memory"</h2>
+            <h4 style="color: #FFE4B5; margin-bottom: 15px; text-align: center; font-family: 'Cormorant Garamond', serif;">Library</h4>
             <div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 5px; flex: 1; min-height: 200px;">
                 <div class="img-placeholder">+ Add Image</div>
                 <div class="img-placeholder">+ Add Image</div>
@@ -175,7 +204,7 @@
             </div>
         </div>
         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
-            <div style="font-weight: bold; font-size: 1.2rem; cursor: pointer;" onclick="goTo('screen-memory')">← Back</div>
+            <div style="font-weight: bold; font-size: 1.2rem; cursor: pointer;" onclick="goTo('screen-memory')"><span class="arrow-flipped">➝</span> Back</div>
             <div style="font-size: 40px; cursor: pointer;" onclick="goTo('screen-assistant')">୭</div>
        </div>
    </div>
@@ -183,7 +212,7 @@
    <div id="screen-create-preferences" class="screen hidden">
         <div class="header-dark">
             <div class="menu-btn" onclick="openMenu()">☰</div>
-            <h1 class="serif header-title">Create your<br>perfume</h1>
+            <h1 class="header-title">Create your<br>perfume</h1>
         </div>
         <div class="step-label">First Step: Create a fragrance</div>
         <p class="section-title">Select your preferences</p>
@@ -200,15 +229,15 @@
         </div>
 
         <div class="nav-bottom nav-split">
-            <div onclick="goTo('screen-create')">← Back</div>
-            <div onclick="goTo('screen-create-memory')">Next →</div>
+            <div onclick="goTo('screen-create')"><span class="arrow-flipped">➝</span> Back</div>
+            <div onclick="goTo('screen-create-memory')">Next ➝</div>
         </div>
     </div>
 
     <div id="screen-create-memory" class="screen hidden">
         <div class="header-dark">
             <div class="menu-btn" onclick="openMenu()">☰</div>
-            <h1 class="serif header-title">Create your<br>perfume</h1>
+            <h1 class="header-title">Create your<br>perfume</h1>
         </div>
         <div class="step-label">First Step: Create a fragrance</div>
         <p class="section-title">Share a memory</p>
@@ -222,16 +251,15 @@
         <div class="option-card static">Woody & Vanilla Notes</div>
 
         <div class="nav-bottom nav-split">
-             <div onclick="goTo('screen-create-preferences')">← Back</div>
-             <div onclick="goTo('screen-create-packaging')">Next →</div>
+             <div onclick="goTo('screen-create-preferences')"><span class="arrow-flipped">➝</span> Back</div>
+             <div onclick="goTo('screen-create-packaging')">Next ➝</div>
         </div>
     </div>
-
 
     <div id="screen-create-packaging" class="screen hidden">
          <div class="header-dark">
             <div class="menu-btn" onclick="openMenu()">☰</div>
-            <h1 class="serif header-title">Create your<br>perfume</h1>
+            <h1 class="header-title">Create your<br>perfume</h1>
         </div>
          <div class="step-label">Second Step: Create a packaging</div>
          <p class="section-title">Select your packaging format</p>
@@ -246,32 +274,32 @@
          </div>
 
          <div class="nav-bottom nav-split">
-             <div onclick="goTo('screen-create-memory')">← Back</div>
-             <div onclick="goTo('screen-create-custom')">Next →</div>
+             <div onclick="goTo('screen-create-memory')"><span class="arrow-flipped">➝</span> Back</div>
+             <div onclick="goTo('screen-create-custom')">Next ➝</div>
         </div>
     </div>
 
     <div id="screen-create-custom" class="screen hidden">
         <div class="header-dark">
             <div class="menu-btn" onclick="openMenu()">☰</div>
-            <h1 class="serif header-title">Create your<br>perfume</h1>
+            <h1 class="header-title">Create your<br>perfume</h1>
         </div>
         <div class="step-label">Third Step: Customize</div>
         <p class="section-title">Text Personalization</p>
         <input type="text" class="input-area" placeholder="Write a name or phrase">
         <p class="section-title">Choose a color</p>
-        <select class="input-area" style="height: 50px;"><option>Gold</option><option>Champagne</option><option>Black Matte</option><option>Emerald</option><option>Rose Gold</option></select>
+        <select class="input-area" style="height: 50px;"><option>Gold</option><option>Rose Gold</option></select>
 
         <div class="nav-bottom nav-split">
-             <div onclick="goTo('screen-create-packaging')">← Back</div>
-             <div onclick="goTo('screen-preview')">Next →</div>
+             <div onclick="goTo('screen-create-packaging')"><span class="arrow-flipped">➝</span> Back</div>
+             <div onclick="goTo('screen-preview')">Next ➝</div>
         </div>
     </div>
 
     <div id="screen-preview" class="screen hidden">
         <div class="header-dark">
             <div class="menu-btn" onclick="openMenu()">☰</div>
-            <h1 class="serif header-title" style="margin-top: 10px;">Homepage</h1>
+            <h1 class="header-title" style="margin-top: 10px;">Homepage</h1>
         </div>
         <div class="step-label" style="background: transparent;">Preview My Perfume</div>
 
@@ -280,25 +308,25 @@
         </div>
 
         <div class="nav-bottom nav-split">
-             <div onclick="goTo('screen-create-custom')">← Back</div>
-             <div onclick="goTo('screen-finish')">Finish Order →</div>
+             <div onclick="goTo('screen-create-custom')"><span class="arrow-flipped">➝</span> Back</div>
+             <div onclick="goTo('screen-finish')">Finish Order ➝</div>
         </div>
     </div>
 
     <div id="screen-finish" class="screen hidden">
         <div class="header-dark">
             <div class="menu-btn" onclick="openMenu()">☰</div>
-            <h1 class="serif header-title">Order<br>Status</h1>
+            <h1 class="header-title">Order<br>Status</h1>
         </div>
 
         <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
             <div style="font-size: 100px; color: #4CAF50; margin-bottom: 20px;">✅</div>
-            <h1 class="serif" style="color: var(--dark-brown); font-size: 2.5rem;">Order<br>Confirmed!</h1>
+            <h1 class="header-title" style="color: var(--dark-brown); font-size: 2.5rem;">Order<br>Confirmed!</h1>
             <p style="margin-top: 20px; color: #6e5d50;">Thank you for your purchase.<br>Your unique scent is on its way.</p>
         </div>
 
         <div class="nav-bottom" style="text-align: center;">
-             <div style="font-weight: bold; font-size: 1.2rem; cursor: pointer;" onclick="goTo('screen-home')">Back to Home →</div>
+             <div style="font-weight: bold; font-size: 1.2rem; cursor: pointer;" onclick="goTo('screen-home')">Back to Home ➝</div>
         </div>
     </div>
 

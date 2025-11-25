@@ -33,21 +33,16 @@ function closeMenu() {
     goTo(previousScreen);
 }
 
-
 function selectOption(element) {
     element.classList.toggle('selected');
 }
 
-// Nova função para seleção ÚNICA
 function selectPackaging(element, imageName) {
-    // 1. Remove selected dos irmãos
     const siblings = element.parentElement.children;
     for (let i = 0; i < siblings.length; i++) {
         siblings[i].classList.remove('selected');
     }
-    // 2. Seleciona o atual
     element.classList.add('selected');
-    // 3. Atualiza imagem
     selectedPackagingImage = imageName;
 }
 
